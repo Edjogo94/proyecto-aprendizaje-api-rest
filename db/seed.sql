@@ -1,5 +1,5 @@
 -- Ejemplos de valores para GenerosPeliculas
-\ c modulos_uni_antioquia
+\c modulos_uni_antioquia
 INSERT INTO
     GenerosPeliculas (Nombre, Estado, Descripcion)
 VALUES
@@ -110,52 +110,52 @@ INSERT INTO
     )
 VALUES
     (
-        'Pulp Fiction',
-        'Una película de Quentin Tarantino.',
-        'http://ejemplo.com/pulp-fiction',
-        1994,
-        5,
-        3,
-        2,
-        1
-    ),
-    (
-        'Titanic',
-        'Una película de James Cameron.',
-        'http://ejemplo.com/titanic',
-        1997,
-        1,
-        5,
-        1,
-        1
-    ),
-    (
-        'Inception',
-        'Una película de Christopher Nolan.',
-        'http://ejemplo.com/inception',
-        2010,
-        3,
-        2,
-        2,
-        1
-    ),
-    (
-        'Jurassic Park',
-        'Una película de Steven Spielberg.',
-        'http://ejemplo.com/jurassic-park',
-        1993,
-        3,
-        1,
-        2,
-        1
-    ),
-    (
-        'The Godfather',
-        'Una película de Francis Ford Coppola.',
-        'http://ejemplo.com/the-godfather',
-        1972,
-        1,
-        4,
-        3,
-        1
-    );
+        E'Pulp Fiction',
+        E'Una película de Quentin Tarantino.',
+         E'http://ejemplo.com/pulp-fiction', 
+         1994,
+         5,
+         3,
+         2,
+         1
+     ),
+     (
+         E'Titanic', 
+         E'Una película de James Cameron.', 
+         E'http://ejemplo.com/titanic', 
+         1997,
+         1,
+         5,
+         1,
+         1
+     ),
+     (
+         E'Inception', 
+         E'Una película de Christopher Nolan.', 
+         E'http://ejemplo.com/inception', 
+         2010,
+         3,
+         2,
+         2,
+         1
+     ),
+     (
+         E'Jurassic Park', 
+         E'Una película de Steven Spielberg.', 
+         E'http://ejemplo.com/jurassic-park', 
+         1993,
+         3,
+         1,
+         2,
+         1
+     ),
+     (
+          E'The Godfather', 
+          E'Una película de Francis Ford Coppola.', 
+          E'http://ejemplo.com/the-godfather', 
+          1972,
+          1,
+          4,
+          3,
+          1
+      );
