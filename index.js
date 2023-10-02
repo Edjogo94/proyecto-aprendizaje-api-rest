@@ -1,7 +1,15 @@
 const app = require("./app");
 
-let port = 3045;
+// CONFIGURATION
+require("dotenv").config();
+const PORT = process.env.PORT;
 
-app.listen(port, () => {
-	console.log("La API se esta ejecutando en el puerto " + port);
+// 404 Route
+app.use((req, res, next) => {
+	res.status(404).send("404 Page Not Found");
+});
+
+// Start the server
+app.listen(PORT, () => {
+	console.log(`Server running on http://localhost:${PORT}`);
 });
