@@ -1,6 +1,7 @@
 const express = require("express");
 
 const app = express();
+const cors = require("cors");
 const directorController = require("./controllers/directorController");
 const generosController = require("./controllers/generosController");
 const mediaController = require("./controllers/mediaController");
