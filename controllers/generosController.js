@@ -42,7 +42,7 @@ genreController.get("/:id", async (req, res) => {
 });
 
 // Crear un nuevo género
-generosPeliculasController.post(
+genreController.post(
 	"/",
 	validateGenerosPeliculasPost,
 	async (req, res) => {
@@ -80,7 +80,7 @@ genreController.delete("/:id", async (req, res) => {
 });
 
 // Actualizar un género por su ID
-generosPeliculasController.put(
+genreController.put(
 	"/:id",
 	validateGenerosPeliculasPut,
 	async (req, res) => {
