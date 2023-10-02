@@ -42,25 +42,17 @@ genreController.get("/:id", async (req, res) => {
 });
 
 // Crear un nuevo género
-genreController.post(
-	"/",
-	validateGenerosPeliculasPost,
-	async (req, res) => {
-		const { Nombre, Estado, Descripcion } = req.body;
-		try {
-			const newGenero = await createGenerosPeliculas(
-				Nombre,
-				Estado,
-				Descripcion
-			);
-			res.status(200).json(newGenero);
-		} catch (error) {
-			res.status(500).json({
-				error: "Error creating genero: " + error.message,
-			});
-		}
+genreController.post("/", validateGenerosPeliculasPost, async (req, res) => {
+	const { Nombre, Estado, Descripcion } = req.body;
+	try {
+		const newGenero = await createGenre(Nombre, Estado, Descripcion);
+		res.status(200).json(newGenero);
+	} catch (error) {
+		res.status(500).json({
+			error: "Error creating genero: " + error.message,
+		});
 	}
-);
+});
 
 // Eliminar un género por su ID
 genreController.delete("/:id", async (req, res) => {
@@ -80,30 +72,26 @@ genreController.delete("/:id", async (req, res) => {
 });
 
 // Actualizar un género por su ID
-genreController.put(
-	"/:id",
-	validateGenerosPeliculasPut,
-	async (req, res) => {
-		const { id } = req.params;
-		const { Nombre, Estado, Descripcion } = req.body;
-		try {
-			const updatedGenero = await updateGenerosPeliculas(
-				id,
-				Nombre,
-				Estado,
-				Descripcion
-			);
-			if (updatedGenero) {
-				res.status(200).json(updatedGenero);
-			} else {
-				res.status(404).json({ error: "Genero not found" });
-			}
-		} catch (error) {
-			res.status(500).json({
-				error: "Error updating genero: " + error.message,
-			});
+genreController.put("/:id", validateGenerosPeliculasPut, async (req, res) => {
+	const { id } = req.params;
+	const { Nombre, Estado, Descripcion } = req.body;
+	try {
+		const updatedGenero = await updateGenre(
+			id,
+			Nombre,
+			Estado,
+			Descripcion
+		);
+		if (updatedGenero) {
+			res.status(200).json(updatedGenero);
+		} else {
+			res.status(404).json({ error: "Genero not found" });
 		}
+	} catch (error) {
+		res.status(500).json({
+			error: "Error updating genero: " + error.message,
+		});
 	}
-);
+});
 
 module.exports = genreController;
