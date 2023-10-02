@@ -6,7 +6,11 @@ const {
 	createDirector,
 	deleteDirector,
 	updateDirector,
-} = require("../queries/directorQueries"); 
+} = require("../queries/directorQueries");
+const {
+	validateDirectorPost,
+	validateDirectorPut,
+} = require("../validations/directorValidations");
 
 directorController.get("/", async (req, res) => {
 	try {
@@ -35,8 +39,9 @@ directorController.get("/:id", async (req, res) => {
 	}
 });
 
-directorController.post("/", async (req, res) => {
-	const { Nombres, Estado } = req.body; // Ajusta los campos según tu tabla Director
+// Ruta POST con validador
+directorController.post("/", validateDirectorPost, async (req, res) => {
+	const { Nombres, Estado } = req.body;
 	try {
 		const newDirector = await createDirector(Nombres, Estado);
 		res.status(200).json(newDirector);
@@ -63,9 +68,10 @@ directorController.delete("/:id", async (req, res) => {
 	}
 });
 
-directorController.put("/:id", async (req, res) => {
+// Ruta PUT con validador
+directorController.put("/:id", validateDirectorPut, async (req, res) => {
 	const { id } = req.params;
-	const { Nombres, Estado } = req.body; // Ajusta los campos según tu tabla Director
+	const { Nombres, Estado } = req.body;
 	try {
 		const updatedDirector = await updateDirector(id, Nombres, Estado);
 		if (updatedDirector) {

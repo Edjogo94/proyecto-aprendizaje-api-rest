@@ -7,6 +7,10 @@ const {
 	deleteProductora,
 	updateProductora,
 } = require("../queries/productoresQueries");
+const {
+	validateProductoraPost,
+	validateProductoraPut,
+} = require("../validations/productoresValidations");
 
 // Obtener todas las productoras
 productoraController.get("/", async (req, res) => {
@@ -38,7 +42,7 @@ productoraController.get("/:id", async (req, res) => {
 });
 
 // Crear una nueva productora
-productoraController.post("/", async (req, res) => {
+productoraController.post("/", validateProductoraPost, async (req, res) => {
 	const { Nombre, Estado, Slogan, Descripcion } = req.body;
 	try {
 		const newProductora = await createProductora(
@@ -73,7 +77,7 @@ productoraController.delete("/:id", async (req, res) => {
 });
 
 // Actualizar una productora por su ID
-productoraController.put("/:id", async (req, res) => {
+productoraController.put("/:id", validateProductoraPut, async (req, res) => {
 	const { id } = req.params;
 	const { Nombre, Estado, Slogan, Descripcion } = req.body;
 	try {
@@ -95,5 +99,4 @@ productoraController.put("/:id", async (req, res) => {
 		});
 	}
 });
-
 module.exports = productoraController;

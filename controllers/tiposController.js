@@ -7,6 +7,10 @@ const {
 	deleteTipoMultimedia,
 	updateTipoMultimedia,
 } = require("../queries/tiposQueries");
+const {
+	validateTipoMultimediaPost,
+	validateTipoMultimediaPut,
+} = require("../validations/tiposValidations");
 
 // Obtener todos los tipos de multimedia
 tipoMultimediaController.get("/", async (req, res) => {
@@ -38,20 +42,24 @@ tipoMultimediaController.get("/:id", async (req, res) => {
 });
 
 // Crear un nuevo tipo de multimedia
-tipoMultimediaController.post("/", async (req, res) => {
-	const { Nombre, Descripcion } = req.body;
-	try {
-		const newTipoMultimedia = await createTipoMultimedia(
-			Nombre,
-			Descripcion
-		);
-		res.status(200).json(newTipoMultimedia);
-	} catch (error) {
-		res.status(500).json({
-			error: "Error creating tipo de multimedia: " + error.message,
-		});
+tipoMultimediaController.post(
+	"/",
+	validateTipoMultimediaPost,
+	async (req, res) => {
+		const { Nombre, Descripcion } = req.body;
+		try {
+			const newTipoMultimedia = await createTipoMultimedia(
+				Nombre,
+				Descripcion
+			);
+			res.status(200).json(newTipoMultimedia);
+		} catch (error) {
+			res.status(500).json({
+				error: "Error creating tipo multimedia: " + error.message,
+			});
+		}
 	}
-});
+);
 
 // Eliminar un tipo de multimedia por su ID
 tipoMultimediaController.delete("/:id", async (req, res) => {
@@ -71,25 +79,29 @@ tipoMultimediaController.delete("/:id", async (req, res) => {
 });
 
 // Actualizar un tipo de multimedia por su ID
-tipoMultimediaController.put("/:id", async (req, res) => {
-	const { id } = req.params;
-	const { Nombre, Descripcion } = req.body;
-	try {
-		const updatedTipoMultimedia = await updateTipoMultimedia(
-			id,
-			Nombre,
-			Descripcion
-		);
-		if (updatedTipoMultimedia) {
-			res.status(200).json(updatedTipoMultimedia);
-		} else {
-			res.status(404).json({ error: "Tipo de multimedia not found" });
+tipoMultimediaController.put(
+	"/:id",
+	validateTipoMultimediaPut,
+	async (req, res) => {
+		const { id } = req.params;
+		const { Nombre, Descripcion } = req.body;
+		try {
+			const updatedTipoMultimedia = await updateTipoMultimedia(
+				id,
+				Nombre,
+				Descripcion
+			);
+			if (updatedTipoMultimedia) {
+				res.status(200).json(updatedTipoMultimedia);
+			} else {
+				res.status(404).json({ error: "Tipo multimedia not found" });
+			}
+		} catch (error) {
+			res.status(500).json({
+				error: "Error updating tipo multimedia: " + error.message,
+			});
 		}
-	} catch (error) {
-		res.status(500).json({
-			error: "Error updating tipo de multimedia: " + error.message,
-		});
 	}
-});
+);
 
 module.exports = tipoMultimediaController;

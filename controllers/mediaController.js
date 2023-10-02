@@ -7,6 +7,10 @@ const {
 	deleteMedia,
 	updateMedia,
 } = require("../queries/mediaQueries");
+const {
+	validateMediaPost,
+	validateMediaPut,
+} = require("../validations/mediaValidations");
 
 // Obtener todos los medios
 mediaController.get("/", async (req, res) => {
@@ -38,7 +42,7 @@ mediaController.get("/:serial", async (req, res) => {
 });
 
 // Crear un nuevo medio
-mediaController.post("/", async (req, res) => {
+mediaController.post("/", validateMediaPost, async (req, res) => {
 	const {
 		Titulo,
 		Sinopsis,
@@ -88,8 +92,8 @@ mediaController.delete("/:serial", async (req, res) => {
 });
 
 // Actualizar un medio por su Serial
-mediaController.put("/:serial", async (req, res) => {
-	const { serial } = req.params;
+mediaController.put("/:Serial", validateMediaPut, async (req, res) => {
+	const { Serial } = req.params;
 	const {
 		Titulo,
 		Sinopsis,
@@ -103,7 +107,7 @@ mediaController.put("/:serial", async (req, res) => {
 	} = req.body;
 	try {
 		const updatedMedia = await updateMedia(
-			serial,
+			Serial,
 			Titulo,
 			Sinopsis,
 			URL,
