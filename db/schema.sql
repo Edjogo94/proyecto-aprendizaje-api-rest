@@ -1,8 +1,10 @@
-drop DATABASE if EXISTS modulos_uni_antioquia;
+\encoding UTF8
 
-CREATE DATABASE modulos_uni_antioquia;
+DROP DATABASE IF EXISTS modulos_uni_antioquia;
 
-\c modulos_uni_antioquia 
+CREATE DATABASE modulos_uni_antioquia WITH ENCODING 'UTF8';
+
+\c modulos_uni_antioquia
 
 CREATE TABLE GenerosPeliculas (
     ID SERIAL PRIMARY KEY,

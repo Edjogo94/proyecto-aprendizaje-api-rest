@@ -1,3 +1,5 @@
+\encoding UTF8
+
 -- Ejemplos de valores para GenerosPeliculas
 \c modulos_uni_antioquia
 INSERT INTO
