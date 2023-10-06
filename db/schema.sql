@@ -62,7 +62,7 @@ CREATE TABLE TipoMultimedia (
 CREATE TRIGGER update_ab_changetimestamp BEFORE UPDATE ON TipoMultimedia FOR EACH ROW EXECUTE PROCEDURE  update_changetimestamp_column();
 
 CREATE TABLE Media (
-    Serial SERIAL PRIMARY KEY,
+    ID SERIAL PRIMARY KEY,
     Titulo VARCHAR(255) NOT NULL,
     Sinopsis TEXT,
     URL VARCHAR(255) UNIQUE NOT NULL,

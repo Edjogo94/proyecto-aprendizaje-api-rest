@@ -14,7 +14,7 @@ async function getAllMedia() {
 // Obtener un medio por su Serial
 async function getMediaById(serial) {
 	try {
-		const query = "SELECT * FROM Media WHERE Serial = $1";
+		const query = "SELECT * FROM Media WHERE ID = $1";
 		const result = await db.oneOrNone(query, serial);
 		return result;
 	} catch (error) {
@@ -59,7 +59,7 @@ async function createMedia(
 // Eliminar un medio por su Serial
 async function deleteMedia(serial) {
 	try {
-		const query = "DELETE FROM Media WHERE Serial = $1 RETURNING *";
+		const query = "DELETE FROM Media WHERE ID = $1 RETURNING *";
 		const result = await db.oneOrNone(query, serial);
 		return result;
 	} catch (error) {
@@ -93,7 +93,7 @@ async function updateMedia(
         DirectorID = $7,
         ProductoraID = $8,
         TipoID = $9
-      WHERE Serial = $10
+      WHERE ID = $10
       RETURNING *`;
 		const result = await db.oneOrNone(query, [
 			Titulo,
