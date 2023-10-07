@@ -2,7 +2,7 @@ const Joi = require("joi");
 
 // Define un esquema de validación para Director
 const directorSchema = Joi.object({
-	Nombres: Joi.string().required(),
+	Nombre: Joi.string().required(),
 	Estado: Joi.string().valid("Activo", "Inactivo").required(),
 });
 

@@ -26,7 +26,7 @@ async function getDirectorById(id) {
 async function createDirector(Nombres, Estado) {
   try {
     const query =
-      "INSERT INTO Director (Nombres, Estado) VALUES ($1, $2) RETURNING *";
+      "INSERT INTO Director (Nombre, Estado) VALUES ($1, $2) RETURNING *";
     const result = await db.one(query, [Nombres, Estado]);
     return result;
   } catch (error) {
@@ -49,7 +49,7 @@ async function deleteDirector(id) {
 async function updateDirector(id, Nombres, Estado) {
   try {
     const query =
-      "UPDATE Director SET Nombres = $1, Estado = $2 WHERE ID = $3 RETURNING *";
+      "UPDATE Director SET Nombre = $1, Estado = $2 WHERE ID = $3 RETURNING *";
     const result = await db.oneOrNone(query, [Nombres, Estado, id]);
     return result;
   } catch (error) {

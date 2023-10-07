@@ -41,9 +41,9 @@ directorController.get("/:id", async (req, res) => {
 
 // Ruta POST con validador
 directorController.post("/", validateDirectorPost, async (req, res) => {
-	const { Nombres, Estado } = req.body;
+	const { Nombre, Estado } = req.body;
 	try {
-		const newDirector = await createDirector(Nombres, Estado);
+		const newDirector = await createDirector(Nombre, Estado);
 		res.status(200).json(newDirector);
 	} catch (error) {
 		res.status(500).json({
@@ -71,9 +71,9 @@ directorController.delete("/:id", async (req, res) => {
 // Ruta PUT con validador
 directorController.put("/:id", validateDirectorPut, async (req, res) => {
 	const { id } = req.params;
-	const { Nombres, Estado } = req.body;
+	const { Nombre, Estado } = req.body;
 	try {
-		const updatedDirector = await updateDirector(id, Nombres, Estado);
+		const updatedDirector = await updateDirector(id, Nombre, Estado);
 		if (updatedDirector) {
 			res.status(200).json(updatedDirector);
 		} else {
