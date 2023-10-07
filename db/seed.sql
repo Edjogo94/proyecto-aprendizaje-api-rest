@@ -8,32 +8,32 @@ VALUES
     (
         'Drama',
         'Activo',
-        'Películas centradas en conflictos emocionales.'
+        'Peliculas centradas en conflictos emocionales.'
     ),
     (
         'Comedia',
         'Activo',
-        'Películas humorísticas y ligeras.'
+        'Peliculas humoristicas y ligeras.'
     ),
     (
-        'Ciencia Ficción',
+        'Ciencia Ficcion',
         'Activo',
-        'Películas con elementos de ciencia ficción.'
+        'Peliculas con elementos de ciencia ficcion.'
     ),
     (
-        'Acción',
+        'Accion',
         'Activo',
-        'Películas llenas de acción y aventuras.'
+        'Peliculas llenas de accion y aventuras.'
     ),
     (
         'Romance',
         'Activo',
-        'Películas que exploran relaciones románticas.'
+        'Peliculas que exploran relaciones romanticas.'
     );
 
 -- Ejemplos de valores para Director
 INSERT INTO
-    Director (Nombres, Estado)
+    Director (Nombre, Estado)
 VALUES
     ('Steven Spielberg', 'Activo'),
     ('Christopher Nolan', 'Activo'),
@@ -49,7 +49,7 @@ VALUES
         'Warner Bros. Pictures',
         'Activo',
         'Entertainment for the World',
-        'Productora líder en la industria del entretenimiento.'
+        'Productora lider en la industria del entretenimiento.'
     ),
     (
         'Universal Pictures',
@@ -67,13 +67,13 @@ VALUES
         '20th Century Studios',
         'Activo',
         'The Walt Disney Studios',
-        'Parte de Disney y conocida por películas icónicas.'
+        'Parte de Disney y conocida por peliculas iconicas.'
     ),
     (
         'Sony Pictures',
         'Activo',
         'Great Stories Start Here',
-        'Productora de una variedad de géneros cinematográficos.'
+        'Productora de una variedad de géneros cinematograficos.'
     );
 
 -- Ejemplos de valores para TipoMultimedia
@@ -81,21 +81,21 @@ INSERT INTO
     TipoMultimedia (Nombre, Descripcion)
 VALUES
     (
-        'Película',
+        'Pelicula',
         'Tipo de contenido multimedia que se proyecta en una pantalla.'
     ),
     (
         'Serie de TV',
-        'Una serie de episodios de televisión relacionados.'
+        'Una serie de episodios de television relacionados.'
     ),
     (
         'Documental',
-        'Producción audiovisual que presenta información real.'
+        'Produccion audiovisual que presenta informacion real.'
     ),
-    ('Cortometraje', 'Película de corta duración.'),
+    ('Cortometraje', 'Pelicula de corta duracion.'),
     (
-        'Tráiler',
-        'Video promocional de una película o serie.'
+        'Trailer',
+        'Video promocional de una pelicula o serie.'
     );
 
 -- Ejemplos de valores para Media
@@ -113,7 +113,7 @@ INSERT INTO
 VALUES
     (
         E'Pulp Fiction',
-        E'Una película de Quentin Tarantino.',
+        E'Una pelicula de Quentin Tarantino.',
          E'http://ejemplo.com/pulp-fiction', 
          1994,
          5,
@@ -123,7 +123,7 @@ VALUES
      ),
      (
          E'Titanic', 
-         E'Una película de James Cameron.', 
+         E'Una pelicula de James Cameron.', 
          E'http://ejemplo.com/titanic', 
          1997,
          1,
@@ -133,7 +133,7 @@ VALUES
      ),
      (
          E'Inception', 
-         E'Una película de Christopher Nolan.', 
+         E'Una pelicula de Christopher Nolan.', 
          E'http://ejemplo.com/inception', 
          2010,
          3,
@@ -143,7 +143,7 @@ VALUES
      ),
      (
          E'Jurassic Park', 
-         E'Una película de Steven Spielberg.', 
+         E'Una pelicula de Steven Spielberg.', 
          E'http://ejemplo.com/jurassic-park', 
          1993,
          3,
@@ -153,7 +153,7 @@ VALUES
      ),
      (
           E'The Godfather', 
-          E'Una película de Francis Ford Coppola.', 
+          E'Una pelicula de Francis Ford Coppola.', 
           E'http://ejemplo.com/the-godfather', 
           1972,
           1,

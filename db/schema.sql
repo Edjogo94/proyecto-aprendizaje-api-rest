@@ -31,7 +31,7 @@ CREATE TRIGGER update_ab_changetimestamp BEFORE UPDATE ON GenerosPeliculas FOR E
 
 CREATE TABLE Director (
     ID SERIAL PRIMARY KEY,
-    Nombres VARCHAR(255) NOT NULL,
+    Nombre VARCHAR(255) NOT NULL,
     Estado VARCHAR(10) CHECK (Estado IN ('Activo', 'Inactivo')) NOT NULL,
     FechaCreacion TIMESTAMPTZ DEFAULT current_timestamp,
     FechaActualizacion TIMESTAMPTZ DEFAULT current_timestamp
